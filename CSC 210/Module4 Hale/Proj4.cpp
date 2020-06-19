@@ -39,7 +39,7 @@ void printHeader(double a, double Vo, double g){
 
 }
 
-double * calculateTrajCordinates(double a, double Vo, double g, int t){
+void calculateTrajCordinates(double a, double Vo, double g, int t, double values[]){
 
         cout << a << endl;
         cout << Vo << endl;
@@ -52,12 +52,13 @@ double * calculateTrajCordinates(double a, double Vo, double g, int t){
 
         double y = ((Vo * sin(a))*t)-((1/2)*g*pow(t,2));
 
-        double values[] = {time, x, y};
+        values[0] = time;
+        values[1] = x;
+        values[2] = y;
 
         
         cout << values[0] << " " << values[1] << " " << values[2] << endl;
         cout << "retruning traj values" << endl;
-        return values;
 
 
 }
@@ -79,6 +80,7 @@ int main(){
         cout << endl << "Enter unit for velocity (m/s or f/s): " << endl;
         cin >> unit;
 
+
         if(unit == "f/s"){
             g = 32;
         }else if(unit == "m/s"){
@@ -92,6 +94,14 @@ int main(){
         cout << Vo << endl;
         cout << g << endl;
 
+        double values[3];
+
+
+        cout << values[0] << endl;
+        cout << values[1] << endl;
+        cout << values[2] << endl;
+        
+        
         double tof = ((2*Vo)*sin(a))/g;
         cout << tof << endl;
 
@@ -99,12 +109,12 @@ int main(){
             
             cout << "Before Traj Method" << endl;
 
-            double *value = calculateTrajCordinates(a, Vo, g, t);
+            calculateTrajCordinates(a, Vo, g, t, values);
 
             cout << "Out of Traj Method" << endl;
             while(1){}
 
-            cout << "Time: " << value[0] << "  " << value[1] << "  " << value[2] << endl;
+            cout << "Time: " << values[0] << "  " << values[1] << "  " << values[2] << endl;
         }
         
     }
