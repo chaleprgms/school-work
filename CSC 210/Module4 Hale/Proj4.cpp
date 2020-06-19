@@ -41,11 +41,6 @@ void printHeader(double a, double Vo, double g){
 
 void calculateTrajCordinates(double a, double Vo, double g, int t, double values[]){
 
-        cout << a << endl;
-        cout << Vo << endl;
-        cout << g << endl;
-        cout << t << endl;
-
         double time = (double) t;
 
         double x = (Vo * cos(a))*t;
@@ -58,7 +53,7 @@ void calculateTrajCordinates(double a, double Vo, double g, int t, double values
 
         
         cout << values[0] << " " << values[1] << " " << values[2] << endl;
-        cout << "retruning traj values" << endl;
+
 
 
 }
@@ -90,29 +85,17 @@ int main(){
 
         printHeader(a, Vo, g);
 
-        cout << a << endl;
-        cout << Vo << endl;
-        cout << g << endl;
-
         double values[3];
 
 
-        cout << values[0] << endl;
-        cout << values[1] << endl;
-        cout << values[2] << endl;
-        
         
         double tof = ((2*Vo)*sin(a))/g;
-        cout << tof << endl;
+
 
         for(int t = 0; t < tof; t++){
             
-            cout << "Before Traj Method" << endl;
 
             calculateTrajCordinates(a, Vo, g, t, values);
-
-            cout << "Out of Traj Method" << endl;
-            while(1){}
 
             cout << "Time: " << values[0] << "  " << values[1] << "  " << values[2] << endl;
         }
